@@ -7,9 +7,14 @@ package cn.langya.elements;
 
 
 import cn.langya.utils.IMinecraft;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Element extends IMinecraft {
     boolean state;
+    double x,y,moveX,moveY;
 
     public void draw() {}
 

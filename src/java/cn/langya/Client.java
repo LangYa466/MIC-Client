@@ -14,7 +14,7 @@ import org.lwjgl.opengl.Display;
 public class Client {
     public static String name = "MIC";
     public static String version = "1.0";
-    public static String author = "狼牙神";
+    public static String author = "LangYa";
 
     //Manager
     public static EventManager eventManager;

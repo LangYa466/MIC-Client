@@ -1,5 +1,7 @@
 package net.minecraft.client.entity;
 
+import cn.langya.Client;
+import cn.langya.events.impl.player.EventUpdatePlayer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MovingSoundMinecartRiding;
 import net.minecraft.client.audio.PositionedSoundRecord;
@@ -188,6 +190,15 @@ public class EntityPlayerSP extends AbstractClientPlayer
      */
     public void onUpdateWalkingPlayer()
     {
+        EventUpdatePlayer eventUpdatePlayer = new EventUpdatePlayer( this,  this.posX, this.getEntityBoundingBox().minY, this.posZ, this.rotationYaw, this.rotationPitch, this.onGround);
+        Client.eventManager.call(eventUpdatePlayer);
+        this.posX = eventUpdatePlayer.getX();
+        this.posY = eventUpdatePlayer.getY();
+        this.posZ = eventUpdatePlayer.getZ();
+        this.rotationPitch = eventUpdatePlayer.getPitch();
+        this.rotationYaw = eventUpdatePlayer.getYaw();
+        this.onGround = eventUpdatePlayer.isOnGround();
+
         boolean flag = this.isSprinting();
 
         if (flag != this.serverSprintState)
