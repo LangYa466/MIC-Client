@@ -18,5 +18,4 @@ public class Element extends IMinecraft {
 
     public void draw() {}
 
-
 }
